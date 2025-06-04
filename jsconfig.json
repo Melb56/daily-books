@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",           // Racine du projet
+    "paths": {
+      "@/*": ["./*"]          // @/lib → ./lib, @/components → ./components, etc.
+    }
+  },
+  "exclude": ["node_modules"]
+}
