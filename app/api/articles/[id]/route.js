@@ -16,6 +16,7 @@ export async function PUT(request, { params }) {
   try {
     // Vérifier unicité du slug pour un autre article
     if (data.slug) {
+      console.log('prisma.article:', prisma.article);
       const existingSlug = await prisma.article.findFirst({
         where: {
           slug: data.slug,
@@ -78,9 +79,11 @@ export async function DELETE(request, { params }) {
 }
 
 // AFFICHAGE article (GET)
-export async function GET(request, { params }) {
-  const { id } = params;
 
+export async function GET(request, { params }) {
+    console.log('GET /api/articles/[id] called with params:', params);
+  const { id } = params;
+  
   try {
     const article = await prisma.article.findUnique({
       where: { id: parseInt(id, 10) },
@@ -111,4 +114,5 @@ export async function GET(request, { params }) {
       status: 500,
     });
   }
+   
 }
