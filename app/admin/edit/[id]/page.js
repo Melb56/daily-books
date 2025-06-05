@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth';
 // import { authOptions } from '@/lib/auth';
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import { EditForm } from '@/components/EditForm';
+import EditForm from '@/components/EditForm';
 
 
 

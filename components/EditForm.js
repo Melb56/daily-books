@@ -1,7 +1,7 @@
 import ArticleForm from '@/components/ArticleForm';
 
 
-export async function EditArticlePage({ article }) {
+export default async function EditArticlePage({ article }) {
 
   if (!article) {
     return <h2>Article non trouvé.</h2>;
@@ -9,3 +9,5 @@ export async function EditArticlePage({ article }) {
 
   return <ArticleForm article={article} />;
 }
+
+export default EditArticlePage;
