@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma'; 
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { auth } from '@/lib/auth';
 
 
 // MISE À JOUR d’un article
@@ -81,7 +81,6 @@ export async function DELETE(request, { params }) {
 // AFFICHAGE article (GET)
 
 export async function GET(request, { params }) {
-    console.log('GET /api/articles/[id] called with params:', params);
   const { id } = params;
   
   try {
