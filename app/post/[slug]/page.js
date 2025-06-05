@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import BackButton from '@/components/BackButton';
 import 'styles/post.scss';
+import Image from 'next/image';
 
 export default async function ArticlePage({ params }) {
   const article = await prisma.article.findUnique({
@@ -19,7 +20,7 @@ export default async function ArticlePage({ params }) {
        <p style={{ fontStyle: 'italic', color: '#555' }}>Catégorie : {article.category}</p>
 
       {article.imageUrl && (
-          <img
+          <Image
             src={article.imageUrl}
             alt={article.title}
             style={{ maxWidth: '100%', margin: '20px 0', borderRadius: '8px' }}

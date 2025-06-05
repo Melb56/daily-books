@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import ImageUploader from '@/components/ImageUploader';
 import { categoryTree } from '@/lib/categories';
 import BackButton from '@/components/BackButton';
+import Image from 'next/image';
 
 
 const flatCategories = categoryTree.flatMap(cat => cat.children);

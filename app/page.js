@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import '../styles/home.scss';
 import CategoryFilter from '@/components/CategoryFilter';
 import { categoryTree } from '@/lib/categories';
+import Image from 'next/image';
 
 
 const POSTS_PER_PAGE = 3;
@@ -53,7 +54,7 @@ export default  async function HomePage({ searchParams }) {
           <p style={{ fontStyle: 'italic', color: '#555' }}>Catégorie : {post.category}</p>
 
           {post.imageUrl && (
-            <img
+            <Image
               src={post.imageUrl}
               alt={post.title}
               className="post-image"

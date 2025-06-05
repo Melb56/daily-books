@@ -6,6 +6,7 @@ import { PrismaClient } from "@prisma/client";
 import 'styles/admin.scss';
 import SignOutButton from '@/components/SignOutButton';
 import DeleteButton from '@/components/DeleteButton';
+import Image from 'next/image';
 
 const prisma = new PrismaClient();
 
@@ -38,7 +39,7 @@ export default async function Admin() {
 
             <div className="article-thumbnail">
               {article.imageUrl && (
-                <img src={article.imageUrl} alt={article.title} style={{ width: '100px', height: 'auto', objectFit: 'cover' }} />
+                <Image src={article.imageUrl} alt={article.title} style={{ width: '100px', height: 'auto', objectFit: 'cover' }} />
               )}
             </div>
 
