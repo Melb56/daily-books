@@ -10,4 +10,3 @@ export default async function EditArticlePage({ article }) {
   return <ArticleForm article={article} />;
 }
 
-export default EditArticlePage;
