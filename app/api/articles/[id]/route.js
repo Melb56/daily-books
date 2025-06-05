@@ -4,56 +4,56 @@ import { authOptions } from '@/lib/auth';
 
 
 // MISE À JOUR d’un article
-export async function PUT(request, { params }) {
-  const session = await getServerSession(authOptions);
-  if (!session || session.user.role !== 'ADMIN') {
-    return new Response(JSON.stringify({ error: 'Non autorisé' }), { status: 401 });
-  }
+// export async function PUT(request, { params }) {
+//   const session = await getServerSession(authOptions);
+//   if (!session || session.user.role !== 'ADMIN') {
+//     return new Response(JSON.stringify({ error: 'Non autorisé' }), { status: 401 });
+//   }
 
-  const { id } = params;
-  const data = await request.json();
+//   const { id } = params;
+//   const data = await request.json();
 
-  try {
-    // Vérifier unicité du slug pour un autre article
-    if (data.slug) {
-      console.log('prisma.article:', prisma.article);
-      const existingSlug = await prisma.article.findFirst({
-        where: {
-          slug: data.slug,
-          NOT: { id: parseInt(id, 10) },
-        },
-      });
-      if (existingSlug) {
-        return new Response(
-          JSON.stringify({ error: 'Le slug est déjà utilisé par un autre article.' }),
-          { status: 400 }
-        );
-      }
-    }
+//   try {
+//     // Vérifier unicité du slug pour un autre article
+//     if (data.slug) {
+//       console.log('prisma.article:', prisma.article);
+//       const existingSlug = await prisma.article.findFirst({
+//         where: {
+//           slug: data.slug,
+//           NOT: { id: parseInt(id, 10) },
+//         },
+//       });
+//       if (existingSlug) {
+//         return new Response(
+//           JSON.stringify({ error: 'Le slug est déjà utilisé par un autre article.' }),
+//           { status: 400 }
+//         );
+//       }
+//     }
 
-    const updatedArticle = await prisma.article.update({
-      where: { id: parseInt(id, 10) },
-      data: {
-        title: data.title,
-        content: data.content,
-        category: data.category,
-        slug: data.slug,
-        imageUrl: data.imageUrl || null,
-        imagePublicId: data.imagePublicId || null,
-      },
-    });
+//     const updatedArticle = await prisma.article.update({
+//       where: { id: parseInt(id, 10) },
+//       data: {
+//         title: data.title,
+//         content: data.content,
+//         category: data.category,
+//         slug: data.slug,
+//         imageUrl: data.imageUrl || null,
+//         imagePublicId: data.imagePublicId || null,
+//       },
+//     });
 
-    return new Response(JSON.stringify(updatedArticle), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (error) {
-    console.error('Erreur mise à jour article :', error);
-    return new Response(JSON.stringify({ error: 'Erreur lors de la mise à jour.' }), {
-      status: 500,
-    });
-  }
-}
+//     return new Response(JSON.stringify(updatedArticle), {
+//       status: 200,
+//       headers: { 'Content-Type': 'application/json' },
+//     });
+//   } catch (error) {
+//     console.error('Erreur mise à jour article :', error);
+//     return new Response(JSON.stringify({ error: 'Erreur lors de la mise à jour.' }), {
+//       status: 500,
+//     });
+//   }
+// }
 
 // SUPPRESSION d’un article
 // export async function DELETE(request, { params }) {
