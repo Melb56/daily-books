@@ -32,7 +32,7 @@ $breakpoint: 768px;
         transition: color 0.2s;
 
         &:hover {
-          color: darken($primary-color, 10%);
+          color: color.adjust($primary-color, $lightness: -10%);
         }
       }
     }
