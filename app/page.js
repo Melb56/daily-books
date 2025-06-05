@@ -58,7 +58,8 @@ export default  async function HomePage({ searchParams }) {
               src={post.imageUrl}
               alt={post.title}
               className="post-image"
-              style={{ maxWidth: '100%', borderRadius: '8px', margin: '12px 0' }}
+              width={600} height={400}
+              // style={{ maxWidth: '100%', borderRadius: '8px', margin: '12px 0' }}
             />
           )}
 
