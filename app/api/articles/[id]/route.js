@@ -56,7 +56,7 @@ export async function PUT(request, { params }) {
 }
 
 //SUPPRESSION d’un article
-export async function DELETE(request, { params }) {
+export async function DELETE(_request, { params }) {
   const session = await getServerSession(authOptions);
   if (!session || session.user.role !== 'ADMIN') {
     return new Response(JSON.stringify({ error: 'Non autorisé' }), { status: 401 });
@@ -80,7 +80,7 @@ export async function DELETE(request, { params }) {
 
 
 // AFFICHAGE article (GET)
-export async function GET(request, { params }) {
+export async function GET(_request, { params }) {
   const { id } = params;
   
   try {
