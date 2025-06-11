@@ -11,6 +11,7 @@ async function main() {
     update: {},
     create: {
       email: 'admin@dailybooks.com',
+      name: 'Mel',
       password,
       role: 'ADMIN',
     },

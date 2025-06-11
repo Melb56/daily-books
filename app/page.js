@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma'; 
+import prisma from '@/lib/prisma'; 
 import '../styles/home.scss';
 import CategoryFilter from '@/components/CategoryFilter';
 import { categoryTree } from '@/lib/categories';

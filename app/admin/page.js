@@ -1,4 +1,4 @@
-import { getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
@@ -25,7 +25,7 @@ export default async function Admin() {
     <div className="admin-dashboard">
       <div className="header">
         <h1>Espace Admin</h1>
-         <p>Bienvenue {session.user.email}</p>
+         <p>Bienvenue {session.user.name}</p>
          <SignOutButton />
         <Link className="new-button" href="/admin/new">
           ➕ Nouvel article

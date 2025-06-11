@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { prisma } from '@/lib/prisma';
+import prisma from '@/lib/prisma';
 import BackButton from '@/components/BackButton';
 import 'styles/post.scss';
 import Image from 'next/image';

@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={`${inter.className}`}>
+      <body>
         {/* <ThemeProvider> */}
           <Header />
           <main className="min-h-screen px-4 py-6">
