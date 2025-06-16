@@ -5,9 +5,21 @@ import 'styles/post.scss';
 import Image from 'next/image';
 
 export default async function ArticlePage({ params }) {
+
+  const { slug } = params;
+
+  if (!slug || typeof slug !== 'string') {
+    return notFound();
+  }
+
+  // Recherche article via slug
   const article = await prisma.article.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
   });
+
+  // const article = await prisma.article.findUnique({
+  //   where: { slug: params.slug },
+  // });
 
   if (!article) return notFound();
 
@@ -24,6 +36,7 @@ export default async function ArticlePage({ params }) {
             src={article.imageUrl}
             alt={article.title}
             style={{ maxWidth: '100%', margin: '20px 0', borderRadius: '8px' }}
+            width={600} height={400}
           />
         )}
 
@@ -31,6 +44,6 @@ export default async function ArticlePage({ params }) {
 
       <BackButton style={{ marginBottom: '1rem' }} />
     </article>
-    
+
   );
 }
