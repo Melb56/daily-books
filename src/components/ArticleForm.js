@@ -157,7 +157,7 @@ export default function ArticleForm({ article = null }) {
         <input type="hidden" {...register("imagePublicId")} />
         {imagePreview && (
           <div style={{ marginTop: 10 }}>
-            <Image src={imagePreview} alt="Aperçu" width={600} height={400} />
+            <Image src={imagePreview} alt="Aperçu" width={400} height={600} />
             <button
               type="button"
               style={{ color: "red", marginTop: 5 }}

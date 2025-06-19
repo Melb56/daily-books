@@ -39,8 +39,8 @@ export default function AdminHome({ session }) {
                 <Image
                   src={article.imageUrl}
                   alt={article.title}
-                  width={600}
-                  height={400}
+                  width={400}
+                  height={600}
                 />
               )}
             </div>

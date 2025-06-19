@@ -9,7 +9,10 @@ export default function PostCard({ post }) {
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h3>
       {article.imageUrl && (
-        <Image src={article.imageUrl} alt={article.title} className="max-w-md" />
+        <Image 
+          src={article.imageUrl} 
+          alt={article.title} className="max-w-md"
+           />
       )}
       <p className="date">{new Date(post.date).toLocaleDateString()}</p>
       <p>{post.excerpt}</p>
