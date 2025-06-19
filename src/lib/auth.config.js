@@ -8,6 +8,7 @@ const authConfig = {
         })
     ],
     secret: process.env.AUTH_SECRET,
+    debug: true,
 };
 
 export default authConfig;
