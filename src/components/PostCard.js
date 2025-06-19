@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import '../styles/components/PostCard.scss'
+import Image from "next/image";
 
 export default function PostCard({ post }) {
   return (
