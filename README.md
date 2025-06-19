@@ -34,3 +34,48 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+<!-- <div className="header">
+        <h1>Espace Admin</h1>
+        <p>Bienvenue {session.user.name}</p>
+        {/* <SignOutButton /> */}
+        <Link className="new-button" href="/admin/new">
+          ➕ Nouvel article
+        </Link>
+      </div>
+
+      <h2>Articles existants</h2>
+      <ul className="article-list">
+        {articles.map((article) => (
+          <li key={article.id} className="admin-article">
+            <div className="article-thumbnail">
+              {article.imageUrl && (
+                <Image
+                  src={article.imageUrl}
+                  alt={article.title}
+                  width={600}
+                  height={400}
+                />
+              )}
+            </div>
+
+            <div className="article-info">
+              <strong>{article.title}</strong> —{" "}
+              <em>{new Date(article.date).toLocaleDateString()}</em>
+              <p className="category">📁 {article.category}</p>
+              <div className="admin-actions">
+                <Link href={`/post/${article.slug}`} className="view-link">
+                  Voir
+                </Link>
+                <Link href={`/admin/edit/${article.id}`} className="edit-link">
+                  ✏️ Éditer
+                </Link>
+                <DeleteButton articleId={article.id} />
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul> -->

@@ -1,20 +1,20 @@
-import prisma from '../lib/prisma.js';
-import { hash } from 'bcryptjs';
+import prisma from "../src/lib/prisma.js";
+import { hash } from "bcryptjs";
 
 async function main() {
-  const email = 'admin@example.com';
-  const passwordHashed = await hash('admin1234', 10);
+  const email = "admin@example.com";
+  const passwordHashed = await hash("admin1234", 10);
 
   const user = await prisma.user.create({
     data: {
       email,
-      name: 'Admin',
+      name: "Admin",
       password: passwordHashed,
-      role: 'ADMIN',
+      role: "ADMIN",
     },
   });
 
-  console.log('Admin créé:', user);
+  console.log("Admin créé:", user);
 }
 
 main().catch((e) => console.error(e));
