@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import prisma from "@/lib/prisma";
 import BackButton from "@/components/BackButton";
-import styles from "../styles/components/post.scss";
+import "@/styles/components/post.scss";
 import Image from "next/image";
 
 export default async function ArticlePage({ params }) {

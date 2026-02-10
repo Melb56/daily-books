@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import styles from "../styles/components/header.scss";
+import "@/styles/components/header.scss";
 import Image from "next/image";
 
 export default function Navbar() {
