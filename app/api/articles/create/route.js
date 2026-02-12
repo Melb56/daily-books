@@ -22,7 +22,7 @@ export async function POST(req) {
         content,
         category,
         slug,
-        author: author || null,
+        author,
         excerpt,
         imageUrl: imageUrl || null,
         imagePublicId: imagePublicId || null,
@@ -33,6 +33,14 @@ export async function POST(req) {
     return NextResponse.json(article, { status: 201 });
   } catch (err) {
     console.error('Erreur création article :', err);
+
+      if (err?.code === 'P2002') {
+    return NextResponse.json(
+      { error: 'Slug déjà utilisé. Choisis un slug unique.' },
+      { status: 409 }
+    );
+  }
+
     return NextResponse.json(
       { error: 'Erreur serveur lors de la création de l’article' },
       { status: 500 },
