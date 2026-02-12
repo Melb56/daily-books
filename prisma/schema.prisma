@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id            String          @id @default(cuid())
+  id String @id @default(cuid()) @db.VarChar(191)
   name          String?
   username      String?         @unique
   email         String?         @unique
@@ -24,38 +24,40 @@ model User {
 }
  
 model Account {
-  id                       String  @id @default(cuid())
-  userId                   String  @unique
-  type                     String
-  provider                 String
-  providerAccountId        String
+  id                String  @id @default(cuid()) @db.VarChar(191)
+  userId            String  @db.VarChar(191)
+  type              String  @db.VarChar(191)
+  provider          String  @db.VarChar(191)
+  providerAccountId String  @db.VarChar(191)
+
   refresh_token            String? @db.Text
   access_token             String? @db.Text
   expires_at               Int?
-  token_type               String?
-  scope                    String?
+  token_type               String? @db.VarChar(191)
+  scope                    String? @db.VarChar(191)
   id_token                 String? @db.Text
-  session_state            String?
+  session_state            String? @db.VarChar(191)
   refresh_token_expires_in Int?
-  user                     User?   @relation(fields: [userId], references: [id])
- 
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
- 
+
   @@unique([provider, providerAccountId])
   @@index([userId])
 }
  
 model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
+  id           String   @id @default(cuid()) @db.VarChar(191)
+  sessionToken String   @unique @db.VarChar(191)
+  userId       String   @db.VarChar(191)
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id])
- 
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
- 
+
   @@index([userId])
 }
  
