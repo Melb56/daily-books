@@ -1,0 +1,75 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+
+    
+/* ← → boutons */
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 34px;
+        height: 34px;
+        padding: 0 0.6rem;
+
+
+        text-decoration: none;
+        color: var(--text);
+        font-family: var(--font-text);
+
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+
+}
+
+.pagination__link:hover {
+  background: rgba(92, 58, 46, 0.08);
+}
+
+/* pages 1 2 3 */
+.pagination__page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 34px;
+  height: 34px;
+  padding: 0 0.6rem;
+
+  border-radius: 999px;
+  border: 1px solid rgba(43, 30, 26, 0.15);
+
+  text-decoration: none;
+  color: var(--text);
+
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pagination__page:hover {
+  background: rgba(92, 58, 46, 0.08);
+}
+
+/* page active */
+.pagination__page--active {
+  background: var(--accent);
+  color: var(--light);
+  border-color: transparent;
+  font-weight: var(--weight-bold);
+}
+
+/* ... */
+.pagination__ellipsis {
+  padding: 0 0.3rem;
+  color: rgba(43, 30, 26, 0.6);
+}
+
+/* disabled */
+.pagination__link--disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
