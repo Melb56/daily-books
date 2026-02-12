@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import "@/styles/components/header.scss";
 import Image from "next/image";
+import Button from "@/components/buttons/Button";
+
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +52,7 @@ export default function Navbar() {
       <div className="nav__bar">
         <Link className="nav__brand" href="/" onClick={close}>
           <Image
+            className="nav__image"
             src="/image/Logo/logo-nav.png"
             alt="Logo"
             width="130"
@@ -87,11 +91,13 @@ export default function Navbar() {
             ))}
           </ul> */}
 
-          <div className="nav__actions">
-            <Link className="nav__cta" href="/login" onClick={close}>
-              Connexion
-            </Link>
+          <div className="nav__button">
+              <Button href="/login">Connexion</Button>
+              <Button href="/">Inscription</Button>
+            
           </div>
+          
+
         </div>
       </div>
     </header>

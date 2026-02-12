@@ -19,12 +19,16 @@ export default async function ArticlePage({ params }) {
   if (!article) return notFound();
 
   return (
-    <article style={{ padding: "32px" }}>
-      <h1>{article.title}</h1>
+    <article className="article">
+      <div className="article__titre">
+        <h1>{article.title}</h1>
+        <p>{article.author}</p>        
+      </div>
 
-      <p>{new Date(article.date).toLocaleDateString("fr-FR")}</p>
 
-      <p style={{ fontStyle: "italic", color: "#555" }}>
+      {/* <p>{new Date(article.date).toLocaleDateString("fr-FR")}</p> */}
+
+      <p>
         Catégorie : {article.category}
       </p>
 
@@ -33,8 +37,8 @@ export default async function ArticlePage({ params }) {
           src={article.imageUrl}
           alt={article.title}
           style={{ maxWidth: "100%", margin: "20px 0", borderRadius: "8px" }}
-          width={400}
-          height={600}
+          width={100}
+          height={150}
         />
       )}
 

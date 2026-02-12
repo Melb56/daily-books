@@ -1,0 +1,17 @@
+.btn {
+    background: var(--accent);
+    color: var(--light);
+    font-family: var(--font-text);
+    font-size: var(--text); 
+    font-weight: var( --weight-regular);
+    line-height: var(--lh-text); 
+    padding: 0.3rem 1.8rem;
+    margin: 0.3rem ;
+    border-radius: 100px;
+    text-decoration: none;
+    box-shadow: 4px 4px 4px rgba(43, 30, 26, 0.10);;
+
+    @media (min-width: 768px) {
+
+    }
+}

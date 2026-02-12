@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import DeleteButton from '@/components/DeleteButton';
+import DeleteButton from '@/components/buttons/DeleteButton';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -43,20 +43,19 @@ export default function AdminHome({ session }) {
                 <Image
                   src={article.imageUrl}
                   alt={article.title}
-                  width={400}
-                  height={600}
+                  width={100}
+                  height={150}
                   className="admin-dashboard__image"
                 />
               )}
             </div>
-
             <div className="admin-dashboard__info">
-              <strong className="admin-dashboard__itemTitle">{article.title}</strong>{" "}
-              <span className="admin-dashboard__meta">
+              <p className="admin-dashboard__itemTitle">{article.title}</p>{" "}
+              <p>{article.author}</p>
+              {/* <span className="admin-dashboard__meta">
                 — <em className="admin-dashboard__date">{new Date(article.date).toLocaleDateString()}</em>
-              </span>
-
-              <p className="admin-dashboard__category">📁 {article.category}</p>
+              </span> */}
+              <p className="admin-dashboard__category"> {article.category}</p>
 
               <div className="admin-dashboard__actions">
                 <Link href={`/post/${article.slug}`} className="admin-dashboard__action admin-dashboard__action--view">
@@ -64,10 +63,9 @@ export default function AdminHome({ session }) {
                 </Link>
 
                 <Link href={`/admin/edit/${article.id}`} className="admin-dashboard__action admin-dashboard__action--edit">
-                  ✏️ Éditer
+                  Editer
                 </Link>
 
-                {/* Idéalement: donne une class au bouton delete via props */}
                 <DeleteButton articleId={article.id} className="admin-dashboard__action admin-dashboard__action--delete" />
               </div>
             </div>

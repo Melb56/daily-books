@@ -4,28 +4,27 @@
   z-index: 50;
   background: var(--main);
   padding: 1rem 0 0.5rem 0;
-  
+
+  &__image {
+    @media (min-width: 768px) {
+            width:200px;
+            height: auto;
+    }
+  }
 
   &__bar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid var(--light);
     box-shadow: 0 1px 2px rgba(43, 30, 26, 0.04);
     margin: 0 2rem;
-    // max-width: 1100px;
-    // margin: 0 2rem;
-    // padding: 0.9rem 1rem;
-    // display: flex;
-    // align-items: center;
-    // gap: 0.75rem;
+
+    @media (min-width: 768px) {
+      margin: 0 5rem;
+    }
   }
 
-  &__brand {
-    // font-weight: 700;
-    // text-decoration: none;
-    // color: inherit;
-    // letter-spacing: 0.2px;
-  }
 
   &__toggle {
     margin-left: auto;
@@ -78,9 +77,8 @@
     @media (min-width: 768px) {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-left: auto;
-      gap: 1rem;
+      justify-content: flex-end;
+     
     }
 
     &--open {
@@ -91,7 +89,7 @@
       top: 89%;
       background: var(--main);
       border-bottom: 1px solid rgba(43, 30, 26, 0.08);
-      padding: 0.75rem 1rem 1rem;
+      padding: 0.5rem 0;
       
 
       @media (min-width: 768px) {
@@ -141,31 +139,15 @@
   //   }
   // }
 
-  &__actions {
-    margin-top: 0.75rem;
-
-    @media (min-width: 768px) {
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  &__cta {
-    display: inline-flex;
+  &__button {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 0.65rem 0.9rem;
-    border-radius: 100px;
-    background: var(--accent);
-    color: var(--light);
-    // border: 1px solid rgba(0, 0, 0, 0.12);
-    // background: rgba(0, 0, 0, 0.04);
-    // color: inherit;
 
-    &:hover {
-      background: rgba(0, 0, 0, 0.06);
+    @media (min-width: 425px) {
+      margin-top: 0;
+      flex-direction: row;
+      justify-content: center;
     }
   }
 }
