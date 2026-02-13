@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 import { SessionProvider } from "next-auth/react";
+import ScrollTopButton from "@/components/buttons/ScrollTopButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
           <Toaster position="top-right" />
           <SessionProvider>{children}</SessionProvider>
         </main>
+        <ScrollTopButton />
         <Footer />
 
         {/* </ThemeProvider> */}

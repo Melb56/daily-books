@@ -1,29 +1,29 @@
-import prisma from '@/lib/prisma';
-import '@/styles/home.scss';
-import CategoryFilter from '@/components/home/CategoryFilter';
-import { categoryTree } from '@/lib/categories';
+import prisma from "@/lib/prisma";
+import "@/styles/home.scss";
+import CategoryFilter from "@/components/home/CategoryFilter";
+import { categoryTree } from "@/lib/categories";
 import "@/components/home/ArticleList"
-import Image from 'next/image';
-import ArticleList from '@/components/home/ArticleList';
+import Image from "next/image";
+import ArticleList from "@/components/home/ArticleList";
 import Pagination from "@/components/home/Pagination";
 
-const POSTS_PER_PAGE = 2;
+const POSTS_PER_PAGE = 4;
 
-const allCategories = ['Tous', ...categoryTree.flatMap((cat) => cat.children)];
+const allCategories = ["Tous", ...categoryTree.flatMap((cat) => cat.children)];
 
 export default async function HomePage({ searchParams }) {
   const params = await searchParams;
 
-  const currentPage = parseInt(params?.page || '1', 10);
-  const selectedCategory = params?.category || 'Tous';
+  const currentPage = parseInt(params?.page || "1", 10);
+  const selectedCategory = params?.category || "Tous";
 
   const where =
-    selectedCategory === 'Tous' ? {} : { category: selectedCategory };
+    selectedCategory === "Tous" ? {} : { category: selectedCategory };
 
   const [articles, totalCount] = await Promise.all([
     prisma.article.findMany({
       where,
-      orderBy: { date: 'desc' },
+      orderBy: { date: "desc" },
       skip: (currentPage - 1) * POSTS_PER_PAGE,
       take: POSTS_PER_PAGE,
     }),
@@ -33,30 +33,30 @@ export default async function HomePage({ searchParams }) {
   const totalPages = Math.ceil(totalCount / POSTS_PER_PAGE);
 
   return (
-    <section className='homepage'>
+    <section className="homepage">
 
-      <div className='homepage__header'>
-        <h1 className='homepage__title'>Bienvenue sur Daily Books</h1>
+      <div className="homepage__header">
+        <h1 className="homepage__title">Bienvenue sur Daily Books</h1>
         <Image 
-          className='homepage__image'
-          src='/image/Logo/logo-image.png'
-          alt='Logo'
+          className="homepage__image"
+          src="/image/Logo/logo-image.png"
+          alt="Logo"
           width={220}
           height={230}
           />
-        <h2 className='homepage__subtitle'>
+        <h2 className="homepage__subtitle">
           Parce que chaque moment mérite son livre.
         </h2>
       </div>
 
-      <div className='homepage__filters'>
+      <div className="homepage__filters">
         <CategoryFilter
           categories={allCategories}
           selectedCategory={selectedCategory}
         />
       </div>
 
-      {/* <h2 className='homepage__section-title'>
+      {/* <h2 className="homepage__section-title">
         {selectedCategory}
       </h2> */}
       <div className="homepage__list">
@@ -72,26 +72,7 @@ export default async function HomePage({ searchParams }) {
         />
       </div>
 
-       
-      {/* <nav className='homepage__pagination'>
-        {currentPage > 1 && (
-          <Link
-            className='homepage__pagination-link'
-            href={`/?category=${selectedCategory}&page=${currentPage - 1}`}
-          >
-            ← Page précédente
-          </Link>
-        )}
-
-        {currentPage < totalPages && (
-          <Link
-            className='homepage__pagination-link'
-            href={`/?category=${selectedCategory}&page=${currentPage + 1}`}
-          >
-            Page suivante →
-          </Link>
-        )}
-      </nav> */}
+      
 
     </section>
 

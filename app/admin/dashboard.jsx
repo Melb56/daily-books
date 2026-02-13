@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { useSession, signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import Admin from '@/components/AdminHome';
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import Admin from "@/components/AdminHome";
 
 export default function dashboard() {
 
@@ -22,7 +22,7 @@ export default function dashboard() {
   return (
     <div>
       <Admin session={session} />
-      <button onClick={() => signOut({ callbackUrl: '/' })}>
+      <button onClick={() => signOut({ callbackUrl: "/" })}>
         Déconnexion
       </button>
     </div>

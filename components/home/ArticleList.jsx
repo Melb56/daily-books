@@ -9,7 +9,7 @@ export default function ArticleList({ articles = [] }) {
   }
 
   return (
-    <div className="list">
+    <section className="list">
       {articles.map((post) => (
         <article key={post.slug} className="list__card">
             <div className="list__title">
@@ -22,14 +22,15 @@ export default function ArticleList({ articles = [] }) {
             
 
             {post.imageUrl && (
-                <Image
-                src={post.imageUrl}
-                alt={post.title}
-                className="list__image"
-                width={160}
-                height={250}
-                sizes="(max-width: 768px) 100px, 120px"
+                <div className="list__image">
+                  <Image
+                    src={post.imageUrl}
+                    alt={post.title}
+                    width={160}
+                    height={250}
+                    sizes="(max-width: 768px) 100px, 120px"
                 />
+                </div>     
           )}
 
             <p className="list__excerpt">{post.excerpt}</p>
@@ -39,6 +40,6 @@ export default function ArticleList({ articles = [] }) {
             </Button>
         </article>
       ))}
-    </div>
+    </section>
   );
 }

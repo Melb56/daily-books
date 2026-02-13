@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
+import { NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
 
 // CREATION 
 export async function POST(req) {
@@ -10,7 +10,7 @@ export async function POST(req) {
 
     if (!title || !content || !category || !slug || !author) {
       return NextResponse.json(
-        { error: 'Champs manquants' }, 
+        { error: "Champs manquants" }, 
         { status: 400 });
     }
 
@@ -32,17 +32,17 @@ export async function POST(req) {
 
     return NextResponse.json(article, { status: 201 });
   } catch (err) {
-    console.error('Erreur création article :', err);
+    console.error("Erreur création article :", err);
 
-      if (err?.code === 'P2002') {
+      if (err?.code === "P2002") {
     return NextResponse.json(
-      { error: 'Slug déjà utilisé. Choisis un slug unique.' },
+      { error: "Slug déjà utilisé. Choisis un slug unique." },
       { status: 409 }
     );
   }
 
     return NextResponse.json(
-      { error: 'Erreur serveur lors de la création de l’article' },
+      { error: "Erreur serveur lors de la création de l’article" },
       { status: 500 },
     );
   }

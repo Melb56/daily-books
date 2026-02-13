@@ -9,9 +9,13 @@
     margin: 0.3rem ;
     border-radius: 100px;
     text-decoration: none;
-    box-shadow: 4px 4px 4px rgba(43, 30, 26, 0.10);;
+    box-shadow: 4px 4px 4px rgba(43, 30, 26, 0.10);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 
-    @media (min-width: 768px) {
-
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow:
+        0 10px 18px rgba(43, 30, 26, 0.10),
     }
+
 }

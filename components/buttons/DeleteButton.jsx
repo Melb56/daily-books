@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import toast from 'react-hot-toast';
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function DeleteButton({ articleId }) {
   const router = useRouter();
@@ -12,20 +12,20 @@ export default function DeleteButton({ articleId }) {
     if (!confirmed) return;
 
     const res = await fetch(`/api/articles/${articleId}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
 
     if (res.ok) {
-      toast.success('Article supprimé avec succès');
-      router.push('/admin'); 
+      toast.success("Article supprimé avec succès");
+      router.push("/admin"); 
     } else {
-      toast.error('Échec de la suppression');
+      toast.error("Échec de la suppression");
     }
   };
 
   return (
     <button onClick={handleDelete} className="delete-button">
-      🗑️ Supprimer
+      Supprimer
     </button>
   );
 }

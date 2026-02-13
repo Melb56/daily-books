@@ -1,6 +1,6 @@
 
-import { v2 as cloudinary } from 'cloudinary';
-import { NextResponse } from 'next/server';
+import { v2 as cloudinary } from "cloudinary";
+import { NextResponse } from "next/server";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -10,10 +10,10 @@ cloudinary.config({
 
 export async function POST(req) {
   const formData = await req.formData();
-  const file = formData.get('file');
+  const file = formData.get("file");
 
   if (!file) {
-    return NextResponse.json({ error: 'Aucun fichier envoyé' }, { status: 400 });
+    return NextResponse.json({ error: "Aucun fichier envoyé" }, { status: 400 });
   }
 
   const arrayBuffer = await file.arrayBuffer();
@@ -22,7 +22,7 @@ export async function POST(req) {
   try {
     const result = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream({ 
-        folder: 'articles' }, (error, result) => {
+        folder: "articles" }, (error, result) => {
         
     if (error) reject(error);
     else resolve(result);
@@ -34,6 +34,6 @@ export async function POST(req) {
         public_id: result.public_id,
     });
   } catch (error) {
-    return NextResponse.json({ error: 'Erreur lors de l’upload' }, { status: 500 });
+    return NextResponse.json({ error: "Erreur lors de l’upload" }, { status: 500 });
   }
 }

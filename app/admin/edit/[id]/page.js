@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 
-import EditForm from "@/components/EditForm";
+import EditForm from "@/app/EditForm";
 
 export default async function EditArticlePage({ params }) {
   const resolvedParams = await params;

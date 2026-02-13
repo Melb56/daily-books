@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import Link from 'next/link';
-import DeleteButton from '@/components/buttons/DeleteButton';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import Link from "next/link";
+import DeleteButton from "@/components/buttons/DeleteButton";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 
 export default function AdminHome({ session }) {
@@ -11,7 +11,7 @@ export default function AdminHome({ session }) {
 
   useEffect(() => {
     async function fetchArticles() {
-      const res = await fetch('/api/admin/articles');
+      const res = await fetch("/api/admin/articles");
       const data = await res.json();
       setArticles(data);
     }
@@ -100,7 +100,7 @@ export default function AdminHome({ session }) {
     //         </div>
 
     //         <div className="article-info">
-    //           <strong>{article.title}</strong> —{' '}
+    //           <strong>{article.title}</strong> —{" "}
     //           <em>{new Date(article.date).toLocaleDateString()}</em>
     //           <p className="category">📁 {article.category}</p>
 

@@ -1,4 +1,4 @@
-import Dashboard from '@/app/admin/dashboard';
+import Dashboard from "@/app/admin/dashboard";
 
 
 

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function ImageUploader({ onUploaded }) {
   const [loading, setLoading] = useState(false);
@@ -11,10 +11,10 @@ export default function ImageUploader({ onUploaded }) {
 
     setLoading(true);
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append("file", file);
 
-    const res = await fetch('/api/upload', {
-      method: 'POST',
+    const res = await fetch("/api/upload", {
+      method: "POST",
       body: formData,
     });
 
@@ -24,7 +24,7 @@ export default function ImageUploader({ onUploaded }) {
     if (data.url && data.public_id) {
       onUploaded({ url: data.url, public_id: data.public_id }); 
     } else {
-      alert('Erreur lors de l’upload');
+      alert("Erreur lors de l’upload");
     }
   };
 
