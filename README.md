@@ -2,7 +2,6 @@
 
 ## Description
 
-
 Daily Books est une application web fullstack permettant de gérer, organiser et explorer une bibliothèque de livres.
 Le projet met l’accent sur une architecture moderne avec Next.js App Router, une authentification sécurisée et un espace admin complet pour la gestion des contenus.
 Objectifs du projet :
@@ -13,7 +12,7 @@ Objectifs du projet :
 
 ## Aperçu
 
-
+https://youtube.com/shorts/Pq08L99LNR8
 
 
 ## Stack technique
@@ -49,7 +48,6 @@ Objectifs du projet :
 ## Architecture technique
 
 L’application repose sur une architecture fullstack basée sur Next.js App Router, combinant rendu serveur et composants client pour optimiser performance et maintenabilité.
-
     - Server Components pour le rendu initial et la récupération des données
     - Client Components pour les interactions utilisateur
     - Authentification sécurisée via NextAuth et protection de l'espace admin
